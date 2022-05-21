@@ -1,0 +1,17 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="characterinfo" class="characterinfo">
+        <ui:VisualElement name="spriteContainer" class="spriteContainer">
+            <ui:VisualElement name="sprite" class="sprite" style="background-image: url(&apos;project://database/Assets/Textures/Sprite/MaggieFace.png?fileID=2800000&amp;guid=b634f4eff177c7740a1330d54274ab8e&amp;type=3#MaggieFace&apos;); width: 130px; height: 130px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="statsContainer" class="statsContainer">
+            <ui:VisualElement name="stat" class="stat">
+                <ui:Label text="Health" display-tooltip-when-elided="true" class="name" />
+                <ui:ProgressBar title="0%" low-value="0" tabindex="0" class="bar" />
+            </ui:VisualElement>
+            <ui:VisualElement name="stat" class="stat">
+                <ui:Label text="Mana" display-tooltip-when-elided="true" class="name" />
+                <ui:ProgressBar title="0%" low-value="0" tabindex="0" class="bar" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

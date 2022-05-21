@@ -1,0 +1,25 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="GameUI.uss" />
+    <ui:VisualElement name="container" class="container" style="bottom: 20px;">
+        <ui:VisualElement name="partyContainer" class="partyContainer" style="height: auto; bottom: 20px;">
+            <ui:VisualElement name="characterInfo" class="characterInfo" style="width: 200px; height: 200px;">
+                <ui:VisualElement name="profile" class="profile" style="background-image: url(&apos;/Assets/ExampleAssets/Textures/Props/Construction_Light/ConstructionLight_Albedo.tif&apos;);" />
+                <ui:Label text="Maggie" display-tooltip-when-elided="true" name="characterName" enable-rich-text="true" class="title" />
+                <uie:ProgressBar name="health" class="health" />
+                <uie:ProgressBar name="mana" />
+            </ui:VisualElement>
+            <ui:VisualElement name="characterInfo" class="characterInfo" style="width: 200px; height: 200px;">
+                <ui:VisualElement name="profile" class="profile" style="background-image: url(&apos;/Assets/ExampleAssets/Textures/Props/Construction_Light/ConstructionLight_Albedo.tif&apos;);" />
+                <ui:Label text="Maggie" display-tooltip-when-elided="true" name="characterName" enable-rich-text="true" class="title" />
+                <uie:ProgressBar name="health" class="health" />
+                <uie:ProgressBar name="mana" />
+            </ui:VisualElement>
+            <ui:VisualElement name="characterInfo" class="characterInfo" style="width: 200px; height: 200px;">
+                <ui:VisualElement name="profile" class="profile" style="background-image: url(&apos;/Assets/ExampleAssets/Textures/Props/Construction_Light/ConstructionLight_Albedo.tif&apos;);" />
+                <ui:Label text="Maggie" display-tooltip-when-elided="true" name="characterName" enable-rich-text="true" class="title" />
+                <uie:ProgressBar name="health" class="health" />
+                <uie:ProgressBar name="mana" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

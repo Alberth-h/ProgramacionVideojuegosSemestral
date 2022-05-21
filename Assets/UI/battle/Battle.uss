@@ -1,0 +1,63 @@
+VisualElement {
+}
+
+.container {
+    width: 100%;
+    align-items: center;
+    position: absolute;
+    bottom: 15px;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+
+.battlecontainer {
+    width: 80%;
+    height: auto;
+    background-color: rgba(212, 0, 13, 0.65);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    position: relative;
+    align-items: stretch;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-grow: 1;
+}
+
+.characterinfo {
+    width: 100%;
+    margin-left: 10px;
+    margin-top: 10px;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.sprite {
+}
+
+.spriteContainer {
+    width: 100%;
+    align-items: flex-start;
+}
+
+.statsContainer {
+}
+
+.stat {
+    align-items: flex-start;
+    width: 100%;
+}
+
+.name {
+    width: 30%;
+    color: rgba(255, 255, 255, 255);
+    font-size: 24px;
+}
+
+.bar {
+    width: 70%;
+}
