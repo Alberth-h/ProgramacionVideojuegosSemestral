@@ -4931,9 +4931,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4667595485663050}
   - component: {fileID: 95066344802151532}
-  m_Layer: 0
+  - component: {fileID: 5003936217332593387}
+  - component: {fileID: 101689029277316448}
+  m_Layer: 6
   m_Name: Creatures_Slime_002
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4975,6 +4977,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &5003936217332593387
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292042786131492}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.76102257, z: 0.9656515}
+  m_Center: {x: 0, y: 0.39317816, z: 0.017174244}
+--- !u!114 &101689029277316448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292042786131492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8c3502c1246d04fb99508a915c4929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1323284719378924
 GameObject:
   m_ObjectHideFlags: 0

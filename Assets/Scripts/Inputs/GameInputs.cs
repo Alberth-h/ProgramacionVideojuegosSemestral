@@ -71,6 +71,15 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SceneRpg"",
+                    ""type"": ""Button"",
+                    ""id"": ""98d317d3-d362-4e22-a53f-4ceec5a9e698"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -282,6 +291,17 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                     ""action"": ""Direction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""95c05235-92e8-48a6-b0d6-d6fdafe6b73a"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SceneRpg"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -317,6 +337,7 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
         m_Gameplay_ChangeJob = m_Gameplay.FindAction("ChangeJob", throwIfNotFound: true);
         m_Gameplay_ChangeLeader = m_Gameplay.FindAction("ChangeLeader", throwIfNotFound: true);
         m_Gameplay_Direction = m_Gameplay.FindAction("Direction", throwIfNotFound: true);
+        m_Gameplay_SceneRpg = m_Gameplay.FindAction("SceneRpg", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -381,6 +402,7 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_ChangeJob;
     private readonly InputAction m_Gameplay_ChangeLeader;
     private readonly InputAction m_Gameplay_Direction;
+    private readonly InputAction m_Gameplay_SceneRpg;
     public struct GameplayActions
     {
         private @GameInputs m_Wrapper;
@@ -390,6 +412,7 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
         public InputAction @ChangeJob => m_Wrapper.m_Gameplay_ChangeJob;
         public InputAction @ChangeLeader => m_Wrapper.m_Gameplay_ChangeLeader;
         public InputAction @Direction => m_Wrapper.m_Gameplay_Direction;
+        public InputAction @SceneRpg => m_Wrapper.m_Gameplay_SceneRpg;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -414,6 +437,9 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                 @Direction.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDirection;
                 @Direction.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDirection;
                 @Direction.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDirection;
+                @SceneRpg.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSceneRpg;
+                @SceneRpg.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSceneRpg;
+                @SceneRpg.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSceneRpg;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -433,6 +459,9 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                 @Direction.started += instance.OnDirection;
                 @Direction.performed += instance.OnDirection;
                 @Direction.canceled += instance.OnDirection;
+                @SceneRpg.started += instance.OnSceneRpg;
+                @SceneRpg.performed += instance.OnSceneRpg;
+                @SceneRpg.canceled += instance.OnSceneRpg;
             }
         }
     }
@@ -453,5 +482,6 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
         void OnChangeJob(InputAction.CallbackContext context);
         void OnChangeLeader(InputAction.CallbackContext context);
         void OnDirection(InputAction.CallbackContext context);
+        void OnSceneRpg(InputAction.CallbackContext context);
     }
 }

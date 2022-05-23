@@ -13,5 +13,15 @@ public class Maggie : Hero
         {
             anim.SetFloat("Move", Mathf.Abs(Axis.magnitude));
         }*/
+
+        //Debug.Log(IsLookEnemy);
+        if (IsLookEnemy == true)
+        {
+            talks.actualTalk = talks.maggieTalks[1];
+        }
+        else
+        {
+            talks.actualTalk = talks.maggieTalks[0];
+        }
     }
 }

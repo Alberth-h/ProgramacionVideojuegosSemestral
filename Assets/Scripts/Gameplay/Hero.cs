@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(InputsController))]
 public class Hero : Character, IHostile
@@ -15,8 +16,6 @@ public class Hero : Character, IHostile
     [SerializeField]
     float leaderMinDistance;
 
-    bool IsFollowing = false;
-
     [SerializeField]
     Vector2 minMaxAngle;
     protected float movementValue;
@@ -25,10 +24,19 @@ public class Hero : Character, IHostile
     [SerializeField]
     private float _rotSpeed = 20f;
 
+    [SerializeField]
+    private float _lookEnemyRadius;
+    [SerializeField] 
+    LayerMask enemyMask;
+    private bool _isLookingEnemy = false;
+
+    protected Talks talks;
+
     new void Awake()
     {
         base.Awake();
         inputsController = GetComponent<InputsController>();
+        talks = GetComponent<Talks>();
     }
 
     IEnumerator Start()
@@ -52,13 +60,13 @@ public class Hero : Character, IHostile
 
         if(ImLeader)
         {
-            //IsFollowing = false;
             base.Movement();
             transform.Translate(inputsController.Axis.normalized.magnitude * Vector3.forward * moveSpeed * Time.deltaTime);
             FacingDirection();
+            LookEnemy();
             movementValue = leader.IsMoving ? 1 : 0f;
 
-            Gamemanager.Instance.CurrentGameMode.GetGameUI.Health = health * 100f / maxHealth;
+            //Gamemanager.Instance.CurrentGameMode.GetGameUI.Health = health * 100f / maxHealth;
         }
         else
         {
@@ -85,11 +93,33 @@ public class Hero : Character, IHostile
         return damage;
     }
 
+
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.CompareTag("Enemy"))
+    //    {
+    //        SceneManager.LoadScene(1);
+    //    }
+    //}
+
 /// <summary>
 /// Checks if you are the leader of the party.
 /// </summary>
 /// <returns>Returns a true/false depending of the comparing with leader transform.</returns>
     public bool ImLeader => Gamemanager.Instance.CurrentGameMode.CompareToLeader(transform);
+
+    protected void LookEnemy()
+    {
+        Collider[] rangeChecks = Physics.OverlapSphere(transform.position, _lookEnemyRadius, enemyMask);
+        if (rangeChecks.Length != 0)
+        {
+            _isLookingEnemy = true;
+        }
+        else
+        {
+            _isLookingEnemy = false;
+        }
+    }
 
     protected void FacingDirection()
     {
@@ -102,6 +132,7 @@ public class Hero : Character, IHostile
     Quaternion RotationDirection => Quaternion.LookRotation(inputsController.Axis);
 
     public bool IsMoving => inputsController.Axis != Vector3.zero;
+    public bool IsLookEnemy => _isLookingEnemy;
 
     public CharacterJob CurrentJob{get => currentJob; set => currentJob = value;}
     public JobsOptions GetJobsOptions => jobsOptions;

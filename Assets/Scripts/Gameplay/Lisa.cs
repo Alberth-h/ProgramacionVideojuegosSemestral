@@ -11,9 +11,13 @@ public class Lisa : Hero
 
         anim.SetFloat("move", movementValue);
 
-        /*if(ImLeader || (!ImLeader && CanMoveToleader))
+        if (IsLookEnemy == true)
         {
-            anim.SetFloat("move", Mathf.Abs(Axis.magnitude));
-        }*/
+            talks.actualTalk = talks.lisaTalks[1];
+        }
+        else
+        {
+            talks.actualTalk = talks.lisaTalks[0];
+        }
     }
 }

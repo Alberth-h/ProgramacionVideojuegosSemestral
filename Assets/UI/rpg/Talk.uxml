@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/UI/rpg/Talk.uss?fileID=7433441132597879392&amp;guid=63857b0751aaced44b2bff608997e6aa&amp;type=3#Talk" />
+    <ui:VisualElement name="container" class="container" style="height: 25%;">
+        <ui:VisualElement name="talkcontainer" class="talkcontainer" style="background-color: rgba(115, 0, 166, 0.75);">
+            <ui:VisualElement name="spritecontainer" class="spriteContainer" style="width: 17%;">
+                <ui:VisualElement name="sprite" class="sprite" style="background-image: url(&apos;project://database/Assets/Textures/Sprite/MaggieFace.png?fileID=2800000&amp;guid=b634f4eff177c7740a1330d54274ab8e&amp;type=3#MaggieFace&apos;); width: 100%; height: 100%;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="labelscontainer" class="labelscontainer" style="width: 83%;">
+                <ui:Label text="Name" display-tooltip-when-elided="true" enable-rich-text="false" name="name" class="name" style="font-size: 55px; width: 100%;" />
+                <ui:Label text="Talk" display-tooltip-when-elided="true" enable-rich-text="false" name="talk" class="talking" style="font-size: 50px; align-items: stretch; justify-content: flex-start; flex-direction: column; flex-grow: 1; -unity-text-align: middle-left; width: 100%; color: rgb(255, 255, 255);" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

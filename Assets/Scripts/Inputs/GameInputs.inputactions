@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "SceneRpg",
+                    "type": "Button",
+                    "id": "98d317d3-d362-4e22-a53f-4ceec5a9e698",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -260,6 +269,17 @@
                     "action": "Direction",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "95c05235-92e8-48a6-b0d6-d6fdafe6b73a",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SceneRpg",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

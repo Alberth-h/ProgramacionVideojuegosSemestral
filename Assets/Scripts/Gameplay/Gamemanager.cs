@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Gamemanager : MonoBehaviour
 {
-    
     public static Gamemanager Instance;
     [SerializeField]
     GameMode gameMode;

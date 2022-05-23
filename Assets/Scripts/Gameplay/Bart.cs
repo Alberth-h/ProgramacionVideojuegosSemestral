@@ -8,6 +8,15 @@ public class Bart : Hero
     {
         base.Movement();
         anim.SetFloat("move", movementValue);
+
+        if (IsLookEnemy == true)
+        {
+            talks.actualTalk = talks.bartTalks[1];
+        }
+        else
+        {
+            talks.actualTalk = talks.bartTalks[0];
+        }
     }
 
 }
