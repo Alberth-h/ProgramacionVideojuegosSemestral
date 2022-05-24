@@ -14,7 +14,7 @@ VisualElement {
 .battlecontainer {
     width: 80%;
     height: auto;
-    background-color: rgba(212, 0, 13, 0.65);
+    background-color: rgba(39, 59, 176, 0.65);
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -54,10 +54,26 @@ VisualElement {
 
 .name {
     width: 30%;
-    color: rgba(255, 255, 255, 255);
+    color: rgb(255, 255, 255);
     font-size: 24px;
 }
 
 .bar {
     width: 70%;
+}
+
+.containerUp {
+    height: 10%;
+}
+
+.timeContainer {
+}
+
+.enemyHealth {
+}
+
+.enemyBar {
+}
+
+.timeBar {
 }

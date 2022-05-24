@@ -51,13 +51,13 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "SceneRpg",
-                    "type": "Button",
-                    "id": "98d317d3-d362-4e22-a53f-4ceec5a9e698",
+                    "name": "Attack",
+                    "type": "Value",
+                    "id": "14570744-94c7-4f2f-a5c5-20efae20f011",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -152,7 +152,7 @@
                 {
                     "name": "",
                     "id": "a2f317f8-9bff-4c08-ad4c-5e9edda8e353",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -272,12 +272,23 @@
                 },
                 {
                     "name": "",
-                    "id": "95c05235-92e8-48a6-b0d6-d6fdafe6b73a",
-                    "path": "<Keyboard>/q",
+                    "id": "7ce58cde-4339-4be3-a723-585b5e73a922",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SceneRpg",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7cf69c66-2c60-47c6-9283-8ca26a452d1e",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

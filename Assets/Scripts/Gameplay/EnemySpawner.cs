@@ -7,6 +7,8 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
     GameObject[] enemies;
+    [SerializeField]
+    Hero[] heroes;
 
     private float[] _area1_x = {-27f, -3.5f};
     private float[] _area1_z = {-1.5f, 13f};
@@ -22,32 +24,31 @@ public class EnemySpawner : MonoBehaviour
 
     private void Awake()
     {
-        //Area 1
-        Instantiate(enemies[Random.Range(0, enemies.Length)], new Vector3(Random.Range(_area1_x[0], _area1_x[1]), 0f, Random.Range(_area1_z[0], _area1_z[1])), Quaternion.Euler(new Vector3(0, 180, 0)));
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
 
-        //Area 2
-        Instantiate(enemies[Random.Range(0, enemies.Length)], new Vector3(Random.Range(_area2_x[0], _area2_x[1]), 0f, Random.Range(_area2_z[0], _area2_z[1])), Quaternion.Euler(new Vector3(0, 180, 0)));
+        if (sceneName == "rpgScene") 
+        {
+            //Area 1
+            Instantiate(enemies[Random.Range(0, enemies.Length)], new Vector3(Random.Range(_area1_x[0], _area1_x[1]), 0f, Random.Range(_area1_z[0], _area1_z[1])), Quaternion.Euler(new Vector3(0, 180, 0)));
 
-        //Area 3
-        Instantiate(enemies[Random.Range(0, enemies.Length)], new Vector3(Random.Range(_area3_x[0], _area3_x[1]), 0f, Random.Range(_area3_z[0], _area3_z[1])), Quaternion.Euler(new Vector3(0, 180, 0)));
+            //Area 2
+            Instantiate(enemies[Random.Range(0, enemies.Length)], new Vector3(Random.Range(_area2_x[0], _area2_x[1]), 0f, Random.Range(_area2_z[0], _area2_z[1])), Quaternion.Euler(new Vector3(0, 180, 0)));
 
-        //Area 4
-        Instantiate(enemies[Random.Range(0, enemies.Length)], new Vector3(Random.Range(_area4_x[0], _area4_x[1]), 0f, Random.Range(_area4_z[0], _area4_z[1])), Quaternion.Euler(new Vector3(0, 180, 0)));
+            //Area 3
+            Instantiate(enemies[Random.Range(0, enemies.Length)], new Vector3(Random.Range(_area3_x[0], _area3_x[1]), 0f, Random.Range(_area3_z[0], _area3_z[1])), Quaternion.Euler(new Vector3(0, 180, 0)));
 
+            //Area 4
+            Instantiate(enemies[Random.Range(0, enemies.Length)], new Vector3(Random.Range(_area4_x[0], _area4_x[1]), 0f, Random.Range(_area4_z[0], _area4_z[1])), Quaternion.Euler(new Vector3(0, 180, 0)));
+        }
+
+        if (sceneName == "battle") 
+        {
+            Instantiate(enemies[Random.Range(0, enemies.Length)], new Vector3(12.0f, 43.23f, 2.4f), Quaternion.Euler(new Vector3(0, 209, 0)));
+        }
     }
 
-    //void CheckIfIsInBattle()
-    //{
-    //    Scene currentScene = SceneManager.GetActiveScene();
-    //    string sceneName = currentScene.name;
-//
-    //    if (sceneName == "battle") 
-    //    {
-    //        Debug.Log("Jalo");
-    //    }
-    //}
-
-    //void SetPositionInBattle()
+    //void SetPositionInBattle() heroes[0].EnemySelectedIndex
     //{
     //    transform.position = new Vector3(12.18f, 43.2338f, 5.33f);
     //    transform.rotation = Quaternion.Euler(new Vector3(0.0f, 209.0f, 0.0f));

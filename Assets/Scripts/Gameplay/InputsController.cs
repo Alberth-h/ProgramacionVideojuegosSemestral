@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InputsController : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class InputsController : MonoBehaviour
         ChangeJob(hero.GetJobsOptions);
         gameInputs.Gameplay.ChangeJob.performed += _=> ChangeJob(hero.GetJobsOptions);
         gameInputs.Gameplay.ChangeLeader.canceled += _=> PassLeaderToNextone();
+        gameInputs.Gameplay.Attack.performed += _=> Attacking();
     }
 
     void ChangeJob(JobsOptions job)
@@ -55,6 +57,16 @@ public class InputsController : MonoBehaviour
     void PassLeaderToNextone()
     {
         Gamemanager.Instance.CurrentGameMode.ChangeLeader(transform);
+    }
+
+    public void Attacking()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+        if (sceneName == "battle" && hero.IsHeroTurn)
+        {
+            hero.IsAttack = true;
+        }
     }
 
     public GameInputs GetGameinputs => gameInputs;

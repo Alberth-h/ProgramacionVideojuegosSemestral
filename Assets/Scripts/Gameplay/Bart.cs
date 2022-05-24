@@ -8,6 +8,18 @@ public class Bart : Hero
     {
         base.Movement();
         anim.SetFloat("move", movementValue);
+        if(ImLeader)
+        {
+            anim.SetBool("Attack", isAttacking);
+        }
+
+        if(_healthHero <= 0)
+        {
+            anim.SetBool("Die", true);
+            this.GetComponent<InputsController>().enabled = false;
+            agent.enabled = false;
+            Gamemanager.Instance.CurrentGameMode.ChangeLeader(transform);
+        }
 
         if (IsLookEnemy == true)
         {
@@ -16,6 +28,14 @@ public class Bart : Hero
         else
         {
             talks.actualTalk = talks.bartTalks[0];
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Ball"))
+        {
+            _healthHero -= 5.0f;
         }
     }
 

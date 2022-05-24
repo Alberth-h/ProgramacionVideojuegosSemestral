@@ -5002,6 +5002,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8c3502c1246d04fb99508a915c4929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targets: []
+  heroMask:
+    serializedVersion: 2
+    m_Bits: 128
+  timeBetweenAttacks: 0.5
+  projectile: {fileID: 7209741153373508758, guid: 63228304a9281b147acc53ccb14938c1, type: 3}
+  sightRange: 20
+  attackRange: 12
+  deadBody: {fileID: 1726792789681910, guid: d4b85c9ddaf6c6249b6d216920144811, type: 3}
+  health: 20
+  heros: []
+  heros1: []
+  heros2: []
 --- !u!1 &1323284719378924
 GameObject:
   m_ObjectHideFlags: 0

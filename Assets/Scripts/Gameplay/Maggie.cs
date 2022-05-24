@@ -6,15 +6,21 @@ public class Maggie : Hero
 {
     protected override void Movement()
     {
-        //if(gamemanager,.insta.gamemode.GetLeader.gameObject == gameObject)
         base.Movement();
         anim.SetFloat("Move", movementValue);
-        /*if(ImLeader || (!ImLeader && CanMoveToleader))
+        if(ImLeader)
         {
-            anim.SetFloat("Move", Mathf.Abs(Axis.magnitude));
-        }*/
+            anim.SetBool("Attack", isAttacking);
+        }
 
-        //Debug.Log(IsLookEnemy);
+        if(_healthHero <= 0)
+        {
+            anim.SetBool("Die", true);
+            this.GetComponent<InputsController>().enabled = false;
+            agent.enabled = false;
+            Gamemanager.Instance.CurrentGameMode.ChangeLeader(transform);
+        }
+
         if (IsLookEnemy == true)
         {
             talks.actualTalk = talks.maggieTalks[1];
@@ -24,4 +30,13 @@ public class Maggie : Hero
             talks.actualTalk = talks.maggieTalks[0];
         }
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Ball"))
+        {
+            _healthHero -= 5.0f;
+        }
+    }
+
 }

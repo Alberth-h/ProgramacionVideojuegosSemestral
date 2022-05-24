@@ -73,13 +73,13 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""SceneRpg"",
-                    ""type"": ""Button"",
-                    ""id"": ""98d317d3-d362-4e22-a53f-4ceec5a9e698"",
+                    ""name"": ""Attack"",
+                    ""type"": ""Value"",
+                    ""id"": ""14570744-94c7-4f2f-a5c5-20efae20f011"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -174,7 +174,7 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a2f317f8-9bff-4c08-ad4c-5e9edda8e353"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -294,12 +294,23 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""95c05235-92e8-48a6-b0d6-d6fdafe6b73a"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""id"": ""7ce58cde-4339-4be3-a723-585b5e73a922"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SceneRpg"",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7cf69c66-2c60-47c6-9283-8ca26a452d1e"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -337,7 +348,7 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
         m_Gameplay_ChangeJob = m_Gameplay.FindAction("ChangeJob", throwIfNotFound: true);
         m_Gameplay_ChangeLeader = m_Gameplay.FindAction("ChangeLeader", throwIfNotFound: true);
         m_Gameplay_Direction = m_Gameplay.FindAction("Direction", throwIfNotFound: true);
-        m_Gameplay_SceneRpg = m_Gameplay.FindAction("SceneRpg", throwIfNotFound: true);
+        m_Gameplay_Attack = m_Gameplay.FindAction("Attack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -402,7 +413,7 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_ChangeJob;
     private readonly InputAction m_Gameplay_ChangeLeader;
     private readonly InputAction m_Gameplay_Direction;
-    private readonly InputAction m_Gameplay_SceneRpg;
+    private readonly InputAction m_Gameplay_Attack;
     public struct GameplayActions
     {
         private @GameInputs m_Wrapper;
@@ -412,7 +423,7 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
         public InputAction @ChangeJob => m_Wrapper.m_Gameplay_ChangeJob;
         public InputAction @ChangeLeader => m_Wrapper.m_Gameplay_ChangeLeader;
         public InputAction @Direction => m_Wrapper.m_Gameplay_Direction;
-        public InputAction @SceneRpg => m_Wrapper.m_Gameplay_SceneRpg;
+        public InputAction @Attack => m_Wrapper.m_Gameplay_Attack;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -437,9 +448,9 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                 @Direction.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDirection;
                 @Direction.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDirection;
                 @Direction.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDirection;
-                @SceneRpg.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSceneRpg;
-                @SceneRpg.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSceneRpg;
-                @SceneRpg.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSceneRpg;
+                @Attack.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAttack;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -459,9 +470,9 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
                 @Direction.started += instance.OnDirection;
                 @Direction.performed += instance.OnDirection;
                 @Direction.canceled += instance.OnDirection;
-                @SceneRpg.started += instance.OnSceneRpg;
-                @SceneRpg.performed += instance.OnSceneRpg;
-                @SceneRpg.canceled += instance.OnSceneRpg;
+                @Attack.started += instance.OnAttack;
+                @Attack.performed += instance.OnAttack;
+                @Attack.canceled += instance.OnAttack;
             }
         }
     }
@@ -482,6 +493,6 @@ public partial class @GameInputs : IInputActionCollection2, IDisposable
         void OnChangeJob(InputAction.CallbackContext context);
         void OnChangeLeader(InputAction.CallbackContext context);
         void OnDirection(InputAction.CallbackContext context);
-        void OnSceneRpg(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
     }
 }

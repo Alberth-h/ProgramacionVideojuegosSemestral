@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEditor.Animations;
+using UnityEngine.SceneManagement;
 
 public class GameMode : MonoBehaviour
 {
@@ -44,6 +45,8 @@ public class GameMode : MonoBehaviour
 
     public void ChangeLeader(Transform hero)
     {
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
         if(CompareToLeader(hero))
         {
             partyQueue.Enqueue(partyQueue.Dequeue());
@@ -54,7 +57,10 @@ public class GameMode : MonoBehaviour
                 {
                     hero.GetAgent.enabled = false;
                     hero.GetInputsController.enabled = true;
-                    pCamera.Follow = e;
+                    if (sceneName == "rpgScene")
+                    {
+                        pCamera.Follow = e;
+                    }
                     pCamera.LookAt = e;
                 }
                 else
